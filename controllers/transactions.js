@@ -6,6 +6,7 @@ module.exports = {
     if(req.query.page){
       page = Number(req.query.page);
     }
+    console.log(process.env);
     knex('transactions').orderBy('id', 'asc').offset((page-1) * 50).limit(50).then((results)=>{
       res.json(results);
     }).catch((err)=>{
