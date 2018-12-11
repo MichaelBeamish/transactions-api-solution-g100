@@ -26,7 +26,7 @@ module.exports = {
   create: function(req, res){
     knex('transactions').insert({
       amount: req.body.amount,
-      user_id: req.body.user_id,
+      user_id: req.decoded.id,
       type: req.body.type,
       business_name: req.body.business_name
     }, '*').then((results)=>{
